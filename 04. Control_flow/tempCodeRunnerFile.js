@@ -1,0 +1,3 @@
+val1 = null ?? 10
+// val1 = undefined ?? 20
+// val1 = null ?? 10 ?? 20
