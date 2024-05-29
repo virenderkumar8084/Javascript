@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(langname) {
+        const li = document.createElement('li')
+        li.innerHTML = '${langname}'
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage("python")
+    addlanguage("typescript")
+
+    // Always go for appendchild type of operation
+    function addlanguage_optimised(langname) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage_optimised("golang")
+
+    // EDIT
+    // const secondLang = document.querySelector("li: nth-child(2)")
+    // secondLang.innerHTML = "Mojo" Not optimised approach
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    // secondLang.replaceWith(newli)
+
+    // EDIT
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //REMOVE
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
+
+<!-- appendChild is very costly because for appending the single list it has to traverse whole the tree document  -->
