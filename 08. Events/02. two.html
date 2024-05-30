@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <button id="button">Stop</button>
+</body>
+<script>
+    // Concept of setTimeout() and clearTimeout()
+    
+    const saySamuel = function(){
+        console.log("Samuel")
+    }
+    setTimeout(saySamuel, 2000)
+    // setTimeout(function(){
+    //     console.log("Samuel")
+    //  },2000)
+    const changeText = function() {
+        document.querySelector('h1').innerHTML = "My API's are best."
+    }
+    const changeMe = setTimeout(changeText, 3000)
+
+    // clearTimeout(changeMe)
+    document.querySelector('#button').addEventListener('click', () => {
+        clearTimeout(changeMe)
+        console.log("STOP DONE")
+    })
+</script>
+</html>
